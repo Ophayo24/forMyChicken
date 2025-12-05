@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Princess 💜🦖</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #c79bff, #e8ccff);
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 0 25px rgba(120, 0, 180, 0.3);
+            width: 90%;
+            max-width: 420px;
+            animation: pop 0.5s ease;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(0.7); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        h1 {
+            color: #8b3dff;
+            font-size: 28px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #444;
+        }
+
+        button {
+            margin: 10px;
+            padding: 12px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .yes {
+            background: #9f53ff;
+            color: white;
+        }
+
+        .yes:hover {
+            background: #7d2cff;
+        }
+
+        .no {
+            background: #ddd;
+            color: #444;
+            position: relative;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 25px;
+            animation: float 4s infinite ease-in-out;
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 0.8; }
+            100% { transform: translateY(-300px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating hearts/dinos -->
+    <script>
+        const icons = ["💜", "🦖", "🍰", "💗"];
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (3 + Math.random() * 2) + "s";
+            heart.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHeart, 700);
+    </script>
+
+    <div class="container" id="main">
+        <h1>Hey Princess (Prie) 💜</h1>
+
+        <p>I have a question that’s more serious<br>
+        than you choosing between dinosaurs and cheesecake 😳🦖🍰</p>
+
+        <p><strong>Will you be my girlfriend?</strong><br>
+        <small>— from your girl, Phayo 💜</small></p>
+
+        <button class="yes" onclick="yesAnswer()">Yes 💕</button>
+        <button class="no" id="noBtn" onclick="moveButton()">No 😭</button>
+    </div>
+
+    <div class="container" id="yesScreen" style="display:none;">
+        <h1>YAYYYYY 🎉💜</h1>
+        <p>You just made Phayo happier<br>
+        than a dinosaur eating cheesecake 😭🦖🍰</p>
+        <p>I appreciate you so much, Princess 💞</p>
+    </div>
+
+    <script>
+        // YES BUTTON
+        function yesAnswer() {
+            document.getElementById("main").style.display = "none";
+            document.getElementById("yesScreen").style.display = "block";
+        }
+
+        // NO BUTTON RUNS AWAY 😂
+        function moveButton() {
+            const btn = document.getElementById("noBtn");
+            btn.style.position = "absolute";
+            btn.style.left = Math.random() * 80 + "vw";
+            btn.style.top = Math.random() * 80 + "vh";
+        }
+    </script>
+
+</body>
+</html>
